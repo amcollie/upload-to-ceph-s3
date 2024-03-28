@@ -1,0 +1,4 @@
+vendor/
+.fleet/
+.vscode/
+.env
