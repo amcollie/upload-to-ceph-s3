@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strtoupper($_POST['_method']) === '
         <input type="text" name="document_number" id="document_number">
         <label for="upload">Document Upload</label>
         <div>
-            <img id="pic" alt="upload preview image" />
+            <img id="pic" alt="upload preview image" src="" />
             <input type="file" name="document_upload" id="document_upload">
         </div>
         <button type="submit">Submit</button>
     </form>
-    <script module>
+    <script>
         const imageInput = document.querySelector('#document_upload')
         const img = document.querySelector('#pic')
 

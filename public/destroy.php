@@ -32,7 +32,29 @@ $objects = list_ceph_s3_bucket_objects(BUCKET_NAME);
                     <option value="<?= $object['Key'] ?>"><?= $object['Key'] ?></option>
                 <?php endforeach; ?>
         </select>
-        <button type="submit">Delete File</button>                                   
+        <img id="pic" alt="upload preview image" src="" />
+        <button id="delete-button" type="submit">Delete File</button>
     </form>
+    <script>
+        const dropdownMenu = document.querySelector('#filename')
+        const preview = document.querySelector('#pic')
+        const deleteButton = document.querySelector('#delete-button')
+
+        window.addEventListener('load', function() {
+            preview.style.display = 'none'
+        })
+
+        dropdownMenu.addEventListener('change', function() {
+            preview.style.display = 'block'
+
+            const imageFilename = dropdownMenu.value
+            if (imageFilename != '') {
+                preview.src = 'https://s3-nas.cloud.gov.bs/arrivalbahamas/' + imageFilename
+            } else {
+                preview.style.display = 'none'
+            }
+
+        })
+    </script>
 </body>
 </html>
